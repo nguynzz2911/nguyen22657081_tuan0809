@@ -20,7 +20,7 @@ function App() {
           </Col>
           <Col xs="9">
             <Header />
-            
+            <Main />
           </Col>
         </Row>
       </Container>
