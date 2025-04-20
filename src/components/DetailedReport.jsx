@@ -6,6 +6,7 @@ import { GoPencil } from "react-icons/go";
 import { PiLessThan } from "react-icons/pi";
 import { PiGreaterThan } from "react-icons/pi";
 import { FaRegUserCircle } from "react-icons/fa";
+import EditModal from "./EditModal";
 
 const DetailedReport = () => {
  
@@ -45,6 +46,16 @@ const DetailedReport = () => {
     return <span className={className}>{status}</span>;
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const handleAddUser = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="container-detailed-report">
       <div className="header-detailed-report">
@@ -53,7 +64,7 @@ const DetailedReport = () => {
           Detailed Report
         </div>
         <div className="button-ex-im">
-          <button className="button-import">
+        <button className="button-import" onClick={handleAddUser}>  
             <FaRegUserCircle /> Add user
           </button>
           <button className="button-import">
@@ -114,6 +125,7 @@ const DetailedReport = () => {
           </tbody>
         </table>
       </div>
+      <EditModal isOpen={isModalOpen} onClose={handleCloseModal} />
       <div className="footer-detailed-report">
         <p>63 results</p>
         <div className="number-page-navigation">
